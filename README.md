@@ -1,7 +1,7 @@
 # Travel Time Prediction — Ward-Level Regression
 
 This competition is hosted on Zindi, a machine learning platform for data science challenges.  
-Here is the link to the competition: [Wazihub Soil Moisture Prediction 🌾 - $8 000 USD](https://zindi.africa/competitions/wazihub-soil-moisture-prediction-challenge)
+Here is the link to the competition: [Womxn in Big Data South Africa: Female-Headed Households in South Africa 🌾 - $5 000 USD]([https:-prediction-challenge](https://zindi.africa/competitions/womxn-in-big-data-south-africa-female-headed-households-in-south-africa))
 
 Ranked in the TOP 37%
 ---
