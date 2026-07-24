@@ -1,6 +1,6 @@
 # Travel Time Prediction — Ward-Level Regression
 
-This competition is hosted on Zindi, a machine learning platform for data science challenges.  
+This competition is hosted on Zindi, a source("organized/01_data_loading.R") learning platform for data science challenges.  
 Here is the link to the competition: [womxn-in-big-data-south-africa-female-headed-households-in-south-africa 🌾 - $5 000 USD](https://zindi.africa/competitions/womxn-in-big-data-south-africa-female-headed-households-in-south-africa)
 
 Ranked in the TOP 37%
@@ -138,33 +138,17 @@ source("organized/MAIN.R")
 ### Option 2: Step-by-Step Execution
 
 ```r
-# 1. Load configuration
-source("organized/00_config.R")
-
-# 2. Load data
-source("organized/01_data_loading.R")
-
-# 3. Prepare training data
-xgb <- df[!is.na(df$target), ]
-xgb <- xgb[, -c(1, 3, 51:53, 57, 64, 72)]
-xgb <- xgb[, c(1:49, 51:66, 50)]
-
-# 4. Prepare test data
-ts <- df[is.na(df$target), ]
-ts <- ts[, -c(1, 3, 51:53, 57, 64, 72)]
-ts$target <- NULL
-
-# 5. Train XGBoost
+# 1. Train XGBoost
 source("organized/05_model_xgboost.R")
-xgb_result <- run_xgb_pipeline(xgb, ts, do_cv = TRUE)
+xgb_result <- run_xgb_pipeline(train, test, do_cv = TRUE)
 
 # 6. Train CatBoost
 source("organized/06_model_catboost.R")
-catboost_result <- run_catboost_pipeline(xgb, ts)
+catboost_result <- run_catboost_pipeline(train, test)
 
 # 7. Train LightGBM
 source("organized/07_model_lightgbm.R")
-lgb_result <- run_lgb_pipeline(xgb, ts, do_cv = TRUE)
+lgb_result <- run_lgb_pipeline(train, test, do_cv = TRUE)
 
 # 8. Ensemble predictions
 source("organized/08_model_ensemble.R")
